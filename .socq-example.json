@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "templateVersion": "2.0.0",
+  "kind": "platform",
+  "platform": "truth-social",
+  "endpointCount": 3,
+  "endpoints": [
+    "truth-social/post",
+    "truth-social/profile",
+    "truth-social/user-posts"
+  ],
+  "landingPage": "https://socq.ai/apis/truth-social",
+  "docsPage": "https://docs.socq.ai/api-manual/truth-social/overview",
+  "generatedFrom": "SocQAPI/socq-example-template"
+}

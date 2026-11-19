@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "platform": "truth-social",
+  "platformName": "Truth Social",
+  "baseUrl": "https://api.socq.ai",
+  "creditUsd": 0.005,
+  "endpoints": [
+    {
+      "publicId": "truth-social/post",
+      "name": "Truth Social Post API",
+      "description": "Resolve one known Truth Social post URL into normalized content, author context, media, timestamps, and available visible engagement fields.",
+      "method": "POST",
+      "path": "/v1/truth-social/post",
+      "payload": "payloads/post.json",
+      "launchedAt": "2026-08-17",
+      "price": "0.19 credits ($0.00095) per call",
+      "billing": {
+        "baseCredits": 0.19,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/truth-social/post",
+      "landingUrl": "https://socq.ai/apis/truth-social/post",
+      "required": [
+        "url"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A public content or product URL."
+          }
+        },
+        "required": [
+          "url"
+        ]
+      }
+    },
+    {
+      "publicId": "truth-social/profile",
+      "name": "Truth Social Profile API",
+      "description": "Look up one known public Truth Social username and receive a normalized profile record with identity, biography, profile media, account flags, and visible profile counts when available.",
+      "method": "POST",
+      "path": "/v1/truth-social/profile",
+      "payload": "payloads/profile.json",
+      "launchedAt": "2026-08-17",
+      "price": "0.19 credits ($0.00095) per call",
+      "billing": {
+        "baseCredits": 0.19,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/truth-social/profile",
+      "landingUrl": "https://socq.ai/apis/truth-social/profile",
+      "required": [
+        "username"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "username": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A public account username."
+          }
+        },
+        "required": [
+          "username"
+        ]
+      }
+    },
+    {
+      "publicId": "truth-social/user-posts",
+      "name": "Truth Social User Posts API",
+      "description": "Collect one source page of public Truth Social posts by username or numeric account ID, returning normalized content, authors, media, timestamps, and visible engagement fields.",
+      "method": "POST",
+      "path": "/v1/truth-social/user-posts",
+      "payload": "payloads/user-posts.json",
+      "launchedAt": "2026-08-17",
+      "price": "0.19 credits ($0.00095) per call",
+      "billing": {
+        "baseCredits": 0.19,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/truth-social/user-posts",
+      "landingUrl": "https://socq.ai/apis/truth-social/user-posts",
+      "required": [],
+      "requiredAnyOf": [
+        [
+          "user_id"
+        ],
+        [
+          "username"
+        ]
+      ],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "trim": {
+            "type": "boolean"
+          },
+          "user_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A public account identifier."
+          },
+          "username": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A public account username."
+          }
+        },
+        "required": [],
+        "anyOf": [
+          {
+            "required": [
+              "user_id"
+            ]
+          },
+          {
+            "required": [
+              "username"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
